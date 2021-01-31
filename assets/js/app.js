@@ -3,8 +3,13 @@ function subtract(num1,num2){
     return num1 - num2;
 } 
 function divide(num1,num2){
-   
+    error = "denominator must not be zero"
+   if(num2==0){
+       return error;
+   }
+   else{
     return num1 / num2;
+}
 }
 function add(){
     var num = document.getElementById("newInputBox").value;
@@ -14,6 +19,15 @@ function add(){
         sum = sum + Number(arr[i])
     }
     return sum;
+}
+function multiply(){
+    var num = document.getElementById("newInputBox").value;
+    arr = num.split(" ");
+    result = 1;
+    for(i=0; i < arr.length;i++){
+        result = result * Number(arr[i])
+    }
+    return result;
 }
 function add_facilitator(){
     let a = add()
@@ -34,12 +48,13 @@ function div_facilitator(){
     var num1 = document.getElementById("num1").value;
     var num2 = document.getElementById("num2").value;
     num1 = parseInt(num1)
-    num2 = parseInt(num2)
+    num2 = parseFloat(num2)
     let a = divide(num1,num2)
     document.getElementById("result").innerHTML = "<h3>result :<h3>"+ a;
 }
 function multi_facilitator(){
-   
+    let a = multiply()
+    document.getElementById("result").innerHTML = "<h3>result :<h3>"+ a;
 }
 
 const add_creator = document.querySelector('#add_creator'); 
@@ -69,7 +84,7 @@ function create_divideinput_box() {
 
 }
 function create_multiplyinput_box() {
-    document.getElementById("newElementId").innerHTML = "<h2>Enter numbers with space and click multiply when finished</h2><br><input type='number' id='newinputbox'> <input type='button' id='mul_btn'value='multiply'onclick='multi_facilitator()'; class='btn btn--m'/><div id='result'></div>";
+    document.getElementById("newElementId").innerHTML = "<h2>Enter numbers with space and click multiply when finished</h2><br><input type='text' id='newInputBox'> <input type='button' id='mul_btn'value='multiply'onclick='multi_facilitator()'; class='btn btn--m'/><div id='result'></div>";
 
 }
 
