@@ -6,13 +6,20 @@ function divide(num1,num2){
    
     return num1 / num2;
 }
+function add(){
+    var num = document.getElementById("newInputBox").value;
+    arr = num.split(" ");
+    sum = 0;
+    for(i=0; i < arr.length;i++){
+        sum = sum + Number(arr[i])
+    }
+    return sum;
+}
 function add_facilitator(){
-    var num1 = document.getElementById("num1").value;
-    var num2 = document.getElementById("num2").value;
-    num1 = parseInt(num1)
-    num2 = parseInt(num2)
-    let a = divide(num1,num2)
+    let a = add()
     document.getElementById("result").innerHTML = "<h3>result :<h3>"+ a;
+  
+
 }
 function sub_facilitator(){
     var num1 = document.getElementById("num1").value;
@@ -21,6 +28,7 @@ function sub_facilitator(){
     num2 = parseInt(num2)
     let a = subtract(num1,num2)
     document.getElementById("result").innerHTML = "<h3>result :<h3>"+ a;
+    
 }
 function div_facilitator(){
     var num1 = document.getElementById("num1").value;
@@ -49,7 +57,7 @@ multiply_creator.addEventListener('click', create_multiplyinput_box);
 function create_addinput_box() {
     // Then add the content (a new input box) of the element.
     // Finally put it where it is supposed to appear.
-    document.getElementById("newElementId").innerHTML = "<h2>Enter numbers with space and click add when finished</h2><br><input type='number' id='newInputBox'> <input type='button' id='add_btn'value='add'onclick='add_facilitator()'; class='btn btn--m'/> <div id='result'></div>";
+    document.getElementById("newElementId").innerHTML = "<h2>Enter numbers with space and click add when finished</h2><br><input type='text' id='newInputBox'> <input type='button' id='add_btn'value='add'onclick='add_facilitator()'; class='btn btn--m'/> <div id='result'></div>";
 
 }
 function create_subtractinput_box() {
