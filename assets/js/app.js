@@ -29,6 +29,30 @@ function multiply(){
     }
     return result;
 }
+function sqrt(num){
+    return Math.sqrt(num)
+}
+function power(num1,num2){
+    return Math.pow(num1,num2)
+}
+function sqrt_facilitator(){
+    var num1 = document.getElementById("newInputBox").value;
+    num1 = parseInt(num1)
+    let a = sqrt(num1)
+    document.getElementById("result").innerHTML = "<h3>result :<h3>"+ a;
+  
+
+}
+function power_facilitator(){
+   
+    var num1 = document.getElementById("num1").value;
+    var num2 = document.getElementById("num2").value;
+    num1 = parseInt(num1)
+    num2 = parseInt(num2)
+    let a = power(num1,num2)
+    document.getElementById("result").innerHTML = "<h3>result :<h3>"+ a;
+
+}
 function add_facilitator(){
     let a = add()
     document.getElementById("result").innerHTML = "<h3>result :<h3>"+ a;
@@ -61,13 +85,17 @@ const add_creator = document.querySelector('#add_creator');
 const subtract_creator = document.querySelector('#subtract_creator');
 const divide_creator = document.querySelector('#divide_creator'); 
 const multiply_creator = document.querySelector('#multiply_creator');  
-
+const squareroot_creator = document.querySelector('#squareroot_creator'); 
+const power_creator = document.querySelector('#power_creator'); 
 
 
 add_creator.addEventListener('click', create_addinput_box);
 subtract_creator.addEventListener('click',create_subtractinput_box);
 divide_creator.addEventListener('click', create_divideinput_box);
 multiply_creator.addEventListener('click', create_multiplyinput_box);
+squareroot_creator.addEventListener('click', create_sqrt_box);
+power_creator.addEventListener('click', create_power_box);
+
 
 function create_addinput_box() {
     // Then add the content (a new input box) of the element.
@@ -85,6 +113,15 @@ function create_divideinput_box() {
 }
 function create_multiplyinput_box() {
     document.getElementById("newElementId").innerHTML = "<h2>Enter numbers with space and click multiply when finished</h2><br><input type='text' id='newInputBox'> <input type='button' id='mul_btn'value='multiply'onclick='multi_facilitator()'; class='btn btn--m'/><div id='result'></div>";
+
+}
+function create_sqrt_box() {
+    document.getElementById("newElementId").innerHTML = "<h2>Enter number to be square rooted</h2><br><input type='text' id='newInputBox'> <input type='button' id='mul_btn'value='calculate'onclick='sqrt_facilitator()'; class='btn btn--m'/><div id='result'></div>";
+
+}
+
+function create_power_box() {
+    document.getElementById("newElementId").innerHTML = "<h2>Enter the two numbers </h2><br><input type='number' id='num1'> to the power of<input type='number' id='num2'> <input type='button' value='calculate'onclick='power_facilitator();' class='btn btn--m'/><div id='result'></div>";
 
 }
 
